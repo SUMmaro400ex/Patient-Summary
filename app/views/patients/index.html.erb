@@ -1,0 +1,2 @@
+<h1>Please Select A Patient</h1>
+<%= select_tag "patients", options_from_collection_for_select(@patients, "id", "full_name"), include_blank: true %>

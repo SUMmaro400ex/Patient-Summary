@@ -2,7 +2,7 @@ class DiagnosticProcedure < ApplicationRecord
 	belongs_to :patient
 
 	def to_string
-		"#{description} on, #{date} at, #{time}"
+		"#{description} on, #{date} at #{time}"
 	end
 
 	def date

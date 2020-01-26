@@ -20,7 +20,7 @@ Patient.create(
 		OrderFrequency.create(value: 'q4', unit: 0, medication_order: medication_order)
 	end
 	Diagnosis.create(description: ' Asthma', code:'(J45)', is_patient_reported: true, patient: patient)
-	MedicationOrder.create(name: 'Naproxen', dosage: 500.0, unit: 0, route: 0, necessity: 'relieve swelling', patient: patient) do |medication_order|
+	MedicationOrder.create(name: 'Naproxen', dosage: 500, unit: 0, route: 0, necessity: 'relieve swelling', patient: patient) do |medication_order|
 		OrderFrequency.create(value: 'q6', unit: 0, medication_order: medication_order)
 	end
 	Allergy.create(description: 'hypersensitivity to aspirin or NSAIDs', patient: patient)

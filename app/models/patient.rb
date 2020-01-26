@@ -8,6 +8,10 @@ class Patient < ApplicationRecord
 	has_many :treatments
 	alias_attribute :medications, :medication_orders
 
+	def full_name
+		"#{first_name} #{middle_name ? "#{middle_name} " : ""}#{last_name}"
+	end
+	
 	def age
 		((Time.zone.now - dob.to_time) / 1.year.seconds).floor 
 	end
