@@ -1,0 +1,67 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$darkBlue: rgb(52, 55, 151);
+$border: 1px solid rgb(219, 219, 219);
+$gridItemWidth: calc(100% / 8);
+
+.wrapper {
+  display: grid;
+  font-family: Arial, Helvetica, sans-serif;
+  border: $border;
+  & > div {
+    padding-left: 12px;
+  }
+}
+.heading {
+  height: 36px;
+  align-items: center;
+  display: grid;
+  border-bottom: $border;
+}
+.title {
+  @extend .heading;
+  background-color: rgb(240, 240, 240);
+}
+.facilityInfo {
+  @extend .heading;
+  display: grid;
+  height: 72px;
+  grid-template-columns: $gridItemWidth;
+}
+.infoItem {
+  font-size: 12px;
+  display: grid;
+  height: calc(100% - 5px);
+  padding-top: 5px;
+  grid-template-rows: 1fr 1fr;
+  border-right: $border;
+}
+.data {
+  color: $darkBlue;
+}
+.patientInfo {
+  @extend .heading;
+  display: grid;
+  height: 72px;
+  grid-template-columns: repeat(4, $gridItemWidth);
+  & > div {
+    @extend .infoItem;
+  }
+  & > div:not(:first-child) {
+    padding-left: 12px;
+  }
+}
+
+.summary {
+  @extend .heading;
+  height: fit-content;
+  border-bottom: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  & div.data {
+    font-size: 12px;
+    margin-top: 12px;
+  }
+}

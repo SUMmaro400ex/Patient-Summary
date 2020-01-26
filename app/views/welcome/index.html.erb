@@ -1,0 +1,51 @@
+<div class="wrapper">
+	<div class="title">
+		Emergency Transfer Summary (Form 34L-D)
+	</div>
+	<div class="heading">
+		Transferring Facility
+	</div>
+	<div class="facilityInfo">
+		<div class="infoItem">
+			<div>
+				Name
+			</div>
+			<div class="data">
+				<%= @facility.name %>
+			</div>
+		</div>
+	</div>
+	<div class="heading">
+		Patient Information
+	</div>
+	<div class="patientInfo">
+		<div class="patientInfoItem">
+			<div>First Name</div>
+			<div class="data"><%= @patient.first_name %></div>
+		</div>
+		<div>
+			<div>Middle Name</div>
+			<div class="data"><%= @patient.middle_name %></div>
+		</div>
+		<div>
+			<div>Last Name</div>
+			<div class="data"><%= @patient.last_name %></div>
+		</div>
+		<div>
+			<div>Medical Record (MR)</div>
+			<div class="data"><%= @patient.mr %></div>
+		</div>
+	</div>
+	<div class="summary">
+		<div>Summary</div>
+		<div class="data">
+			This <%= @patient.age %> years old <%= @patient.gender %> was admitted to <%= @facility.name %> on <%= @patient.admission.date %> at <%= @patient.admission.time %> due to <%= @patient.admission.diagnoses.map(&:described_code).to_sentence %>.The observed symptoms on admission were <%= @patient.admission.symptoms.map(&:description).to_sentence %>. <%= @patient.admission.observations.map(&:description).to_sentence %>.
+		</div>
+		<div class="data">
+			Upon asking about known allergies, the patient disclosed <%= @patient.allergies.map(&:description).to_sentence %>. Upon asking about chronic conditions, the patient disclosed <%= @patient.chronic_conditions.map(&:described_code).to_sentence %>. The patient was administered with <%= @patient.medications.map(&:to_string).to_sentence %>.
+		</div>
+		<div class="data">
+			The staff performed <%= @patient.diagnostic_procedures.map(&:to_string).to_sentence %>, revealing <% @patient.diagnoses(&:described_code).to_sentence %>. Our team proceeded to <%= @patient.treatments.map(&:to_string).to_sentence %>.
+		</div>
+	</div>
+</div>
